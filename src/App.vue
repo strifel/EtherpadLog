@@ -43,7 +43,7 @@ import Upload from '@/components/Upload.vue';
         console.log(element);
         if (element.includes("revs")) {
           let author = data['globalAuthor:' + data[element].meta.author];
-          newData.push({'author': author ? author.name : 'unknown', 'text': data[element].changeset});
+          newData.push({'author': author ? author.name : 'unknown', 'text': data[element].changeset.replace(/^Z:.*\$/i, "")});
         }
       }
       this.data = newData;
